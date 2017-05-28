@@ -1,7 +1,7 @@
 {% if all_report %}
 <ul>
   {% for report in all_report %}
-  <li><a href="/rtv/{{ report.id }}">{{ report.topic }}</a></li>
+  <li><a href="/rtv/{{ report.id }}">{{ report.topic }} + {{ report.license_plate }}</a></li>
   {% endfor %}
 </ul>
 {% endif %}
