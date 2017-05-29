@@ -11,3 +11,10 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     model = Report
     template_name = 'rtv/detail.html'
+
+class ReportCreate(generic.CreateView):
+    model = Report
+    fields = ['topic',
+              'license_plate',
+              'address',
+              'date']
