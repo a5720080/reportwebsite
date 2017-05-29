@@ -1,7 +1,10 @@
-<h1>{{ report.topic }}</h1>
-<h3>{{ report.license_plate }}</h3>
+{% extends 'rtv/base.html' %}
+{% block body %}
+  <h1>{{ report.topic }}</h1>
+  <h3>{{ report.license_plate }}</h3>
 
-<ul>
-  {{ report.address }}
-  {{ report.date }}
-</ul>
+  <ul>
+    {{ report.address }}
+    {{ report.date }}
+  </ul>
+{% endblock %}  
