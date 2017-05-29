@@ -1,6 +1,5 @@
-from django.http import Http404
 from .models import Report
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 
 def index(request):
     all_report = Report.objects.all()
@@ -10,8 +9,5 @@ def index(request):
     return render(request , 'rtv/index.html',context)
 
 def detail(request,report_id):
-    try:
-        report = Report.objects.get(pk=report_id)
-    except Report.DoesNotExist:
-        raise Http404("Report Does not exist")
+    report = get_object_or_404(Report,pk=report_id)
     return render(request , 'rtv/detail.html',{'report':report})
