@@ -1,13 +1,13 @@
 from .models import Report
-from django.shortcuts import render,get_object_or_404
+from django.views import generic
 
-def index(request):
-    all_report = Report.objects.all()
-    context = {
-        'all_report' : all_report,
-    }
-    return render(request , 'rtv/index.html',context)
+class IndexView(generic.ListView):
+    template_name = 'rtv/index.html'
+    context_object_name = 'all_report'
 
-def detail(request,report_id):
-    report = get_object_or_404(Report,pk=report_id)
-    return render(request , 'rtv/detail.html',{'report':report})
+    def get_queryset(self):
+        return Report.objects.all()
+
+class DetailView(generic.DetailView):
+    model = Report
+    template_name = 'rtv/detail.html'
