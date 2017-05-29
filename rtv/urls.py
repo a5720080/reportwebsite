@@ -6,6 +6,8 @@ app_name = 'rtv'
 urlpatterns = [
     #/rtv/
     url(r'^$',views.IndexView.as_view() , name ='index'),
+
+    url(r'^register/$',views.UserFormView.as_view() , name ='register'),
     #/rtv/<pk>/
     url(r'^(?P<pk>[0-9]+)$',views.DetailView.as_view() , name = 'detail'),
     #/rtv/report/add/
