@@ -4,8 +4,27 @@
     <h1> All Report </h1>
       <ul>
           {% for report in all_report %}
-              <li><a href="{% url 'rtv:detail' report.id%}">{{ report.topic }} + {{ report.license_plate }}</a></li>
-          {% endfor %}
+          <center>
+                            <h2>{{ report.topic }}</h2>
+                            <h4>{{ report.license_plate }}</h4>
+                                                <!-- View Details -->
+                            <a href="{% url 'rtv:detail' report.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
+
+                            <!-- Delete Posts -->
+                            <form action="{% url 'rtv:report-delete' report.id %}" method="post" style="display: inline;">
+                                {% csrf_token %}
+                                <input type="hidden" name="report.id" value="{{ report.id }}" />
+                                <button type="submit" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </form>
+
+                            
+
+                        </div>
+                    </div>
+            </center>
+            {% endfor %}
       </ul>
   {% endif %}
 {% endblock %}

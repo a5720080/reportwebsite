@@ -1,6 +1,7 @@
 from .models import Report
 from django.views import generic
-
+from django.views.generic.edit import CreateView,UpdateView,DeleteView
+from django.core.urlresolvers import reverse_lazy
 class IndexView(generic.ListView):
     template_name = 'rtv/index.html'
     context_object_name = 'all_report'
@@ -12,9 +13,14 @@ class DetailView(generic.DetailView):
     model = Report
     template_name = 'rtv/detail.html'
 
-class ReportCreate(generic.CreateView):
+class ReportCreate(CreateView):
     model = Report
-    fields = ['topic',
-              'license_plate',
-              'address',
-              'date']
+    fields = ['topic','license_plate','address','date']
+
+class ReportUpdate(UpdateView):
+    model = Report
+    fields = ['topic','license_plate','address','date']
+
+class ReportDelete(DeleteView):
+    model = Report
+    success_url = reverse_lazy('rtv:index')
