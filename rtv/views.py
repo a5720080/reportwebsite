@@ -15,11 +15,11 @@ class DetailView(generic.DetailView):
 
 class ReportCreate(CreateView):
     model = Report
-    fields = ['topic','license_plate','address','date']
+    fields = ['topic','license_plate','address','date','image']
 
 class ReportUpdate(UpdateView):
     model = Report
-    fields = ['topic','license_plate','address','date']
+    fields = ['topic','license_plate','address','date','image']
 
 class ReportDelete(DeleteView):
     model = Report

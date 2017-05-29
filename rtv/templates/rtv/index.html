@@ -5,8 +5,18 @@
       <ul>
           {% for report in all_report %}
           <center>
-                            <h2>{{ report.topic }}</h2>
-                            <h4>{{ report.license_plate }}</h4>
+            <div class="thumbnail">
+                        <a href="{% url 'rtv:detail' report.id %}">
+                          {% if report.image %}
+                            <img src="{{ report.image.url }}" class="img-responsive">
+                          {% else %}
+                            <h3>No image to display</h3>
+                          {% endif %}
+                        </a>
+                        <div class="caption">
+                            <h2>Topic : {{ report.topic }}</h2>
+                            <h4>
+License plate : {{ report.license_plate }}</h4>
                                                 <!-- View Details -->
                             <a href="{% url 'rtv:detail' report.id %}" class="btn btn-primary btn-sm" role="button">View Details</a>
 
@@ -19,7 +29,7 @@
                                 </button>
                             </form>
 
-                            
+
 
                         </div>
                     </div>
