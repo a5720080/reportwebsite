@@ -29,6 +29,15 @@ License plate : {{ report.license_plate }}</h4>
                                 </button>
                             </form>
 
+                            <!-- Updat Posts -->
+                            <form action="{% url 'rtv:report-update' report.id %}" method="post" style="display: inline;">
+                                {% csrf_token %}
+                                <input type="hidden" name="report.id" value="{{ report.id }}" />
+                                <button type="submit" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </button>
+                            </form>
+
 
 
                         </div>
