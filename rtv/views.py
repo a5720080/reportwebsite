@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import Http404
 from .models import Report
 from django.shortcuts import render
 
@@ -10,4 +10,8 @@ def index(request):
     return render(request , 'rtv/index.html',context)
 
 def detail(request,report_id):
-    return HttpResponse("<h2>Detail for Rreport id " + str(report_id) + "</h2>")
+    try:
+        report = Report.objects.get(pk=report_id)
+    except Report.DoesNotExist:
+        raise Http404("Report Does not exist")
+    return render(request , 'rtv/detail.html',{'report':report})
