@@ -1,5 +1,8 @@
-<h1> All Report </h1>
+{% load staticfiles %}
+<link rel ="stylesheet" type="text/css" href="{% static 'rtv/style.css' %}"/>
+
 {% if all_report %}
+<h1> All Report </h1>
 <ul>
   {% for report in all_report %}
   <li><a href="{% url 'rtv:detail' report.id%}">{{ report.topic }} + {{ report.license_plate }}</a></li>
