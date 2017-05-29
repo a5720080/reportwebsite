@@ -1,6 +1,16 @@
 {% load staticfiles %}
+<link rel ="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
 <link rel ="stylesheet" type="text/css" href="{% static 'rtv/style.css' %}"/>
 
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <!--logo -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'rtv:index' %}">RTV - Report Traffic Violation</a>
+    </div>
+  </div>
+</nav>
 {% if all_report %}
 <h1> All Report </h1>
 <ul>
