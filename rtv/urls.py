@@ -18,4 +18,5 @@ urlpatterns = [
     #/rtv/report/1/delete
     url(r'^report/(?P<pk>[0-9]+)/delete/$',views.ReportDelete.as_view() , name = 'report-delete'),
 
+    url(r'^about/$', views.about, name='about'),
 ]

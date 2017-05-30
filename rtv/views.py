@@ -60,3 +60,6 @@ class UserFormView(View):
                     return redirect('rtv:index')
 
         return render(request, self.template_name, {'forms':form})
+
+def about(request):
+    return render(request, 'rtv/about.html')
